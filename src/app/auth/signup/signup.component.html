@@ -1,0 +1,89 @@
+<section class="signup-form">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <!-- Email Field -->
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+        placeholder="Your email"
+      />
+      <mat-hint>Ex. joedan&#64;example.com</mat-hint>
+
+      @if (email.touched && email.hasError('required')) {
+      <mat-error>Email is <strong>required</strong>.</mat-error>
+      } @else if (email.touched && email.hasError('email')) {
+      <mat-error>Please enter a valid email address.</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Password Field -->
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        placeholder="Your password"
+      />
+      <mat-hint align="end">{{ password.value?.length || 0 }} / 6</mat-hint>
+
+      @if (password.touched && password.hasError('required')) {
+      <mat-error>Password is required.</mat-error>
+      } @else if (password.touched && password.hasError('minlength')) {
+      <mat-error>Password must be at least 6 characters long.</mat-error>
+      }
+    </mat-form-field>
+    <!-- Confirm Password -->
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" formControlName="confirmPassword" />
+      @if (confirmPassword.touched && confirmPassword.hasError('required')) {
+      <mat-error>Confirmation is required.</mat-error>
+      } @else if (confirmPassword.hasError('passwordMismatch') &&
+      confirmPassword.touched) {
+      <mat-error>Passwords do not match.</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Date of Birth -->
+    <mat-form-field>
+      <mat-label>Date of Birth</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dob" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      @if (dob.touched && dob.hasError('required')) {
+      <mat-error>Date of Birth is required.</mat-error>
+      } @else if (dob.touched && dob.hasError('tooYoung')) {
+      <mat-error>
+        You must be at least {{ dob.getError("tooYoung").requiredAge }} years
+        old.
+      </mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Terms Checkbox -->
+    <mat-checkbox formControlName="terms">
+      I agree to the Terms & Conditions
+    </mat-checkbox>
+    @if (terms.touched && terms.hasError('required')) {
+    <mat-error>You must accept the terms & conditions.</mat-error>
+    }
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</section>

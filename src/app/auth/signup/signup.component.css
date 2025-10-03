@@ -1,0 +1,36 @@
+.signup-form {
+  width: 100%;
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-checkbox {
+  margin-top: 8px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+
+mat-error {
+  font-size: 12px;
+  color: #f44336;
+}
+
+@media (max-width: 600px) {
+  .signup-form {
+    margin: 20px;
+    padding: 16px;
+  }
+}
