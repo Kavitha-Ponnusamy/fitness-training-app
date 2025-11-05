@@ -1,0 +1,36 @@
+<section class="new-training" fxLayout fxLayoutAlign="center center">
+  <mat-card
+    fxFlex.xs="95%"
+    fxFlex.sm="400px"
+    fxFlex.md="450px"
+    fxFlex.lg="500px"
+    class="training-card"
+  >
+    <mat-card-title fxLayout fxLayoutAlign="center center" class="title">
+      Time to start a workout!
+    </mat-card-title>
+
+    <mat-card-content fxLayout fxLayoutAlign="center center" class="content">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Select type of training</mat-label>
+        <mat-select>
+          <mat-option value="Crunches">Crunches</mat-option>
+          <mat-option value="Touch Toes">Touch Toes</mat-option>
+          <mat-option value="Side Lunges">Side Lunges</mat-option>
+          <mat-option value="Burpees">Burpees</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions fxLayout fxLayoutAlign="center center" class="actions">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        (click)="onStartTraining()"
+      >
+        Start Workout
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</section>
