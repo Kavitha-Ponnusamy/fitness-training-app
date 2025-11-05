@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 import {
   NgForm,
   FormsModule,
@@ -34,6 +35,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   imports: [
     MatFormFieldModule,
     FlexLayoutModule,
+    CommonModule,
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,

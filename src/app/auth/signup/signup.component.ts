@@ -4,8 +4,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 import {
   NgForm,
@@ -49,6 +50,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MatButtonModule,
     FlexLayoutModule,
     ReactiveFormsModule,
+    CommonModule,
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
